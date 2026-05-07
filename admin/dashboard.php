@@ -47,7 +47,7 @@ $jml_techstack = mysqli_fetch_assoc(mysqli_query($conn,"SELECT COUNT(*) c FROM t
       ['icon'=>'fa-graduation-cap','label'=>'Pendidikan','val'=>$jml_pendidikan,'href'=>'pendidikan/index.php','color'=>'#e00000'],
       ['icon'=>'fa-briefcase','label'=>'Pekerjaan','val'=>$jml_pekerjaan,'href'=>'pekerjaan/index.php','color'=>'#e00000'],
       ['icon'=>'fa-users','label'=>'Organisasi','val'=>$jml_organisasi,'href'=>'organisasi/index.php','color'=>'#e00000'],
-      ['icon'=>'fa-code','label'=>'Tech Stack','val'= >$jml_techstack,'href'=>'techstack/index.php','color'=>'#e00000'],
+      ['icon'=>'fa-code','label'=>'Tech Stack','val'=>$jml_techstack,'href'=>'techstack/index.php','color'=>'#e00000'],
     ];
     foreach($menu as $m): ?>
     <div class="col-md-4">
@@ -70,8 +70,10 @@ $jml_techstack = mysqli_fetch_assoc(mysqli_query($conn,"SELECT COUNT(*) c FROM t
             <?php
             $b = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM biodata LIMIT 1"));
             $fp = $b['foto_local'] ? 'assets/img/'.$b['foto_local'] : $b['foto'];
+            // echo $fp;
+            // die();
             ?>
-            <img src="<?= htmlspecialchars($fp) ?>" alt="foto"
+            <img src="../<?= htmlspecialchars($fp) ?>" alt="foto"
                 style="width:50px;height:50px;border-radius:50%;object-fit:cover;border:2px solid #e00000;"
                 onerror="this.src='https://ui-avatars.com/api/?name=Ahmad+Bayu&size=50&background=1a1a1a&color=e00000&bold=true'">
             <div>

@@ -2,7 +2,10 @@
 session_start();
 if(!isset($_SESSION['admin'])){ header('Location: ../../admin/login.php'); exit; }
 require_once '../../config/db.php';
-
+$folder_img = '../../assets/img/';
+if(!is_dir($folder_img)){
+  mkdir($folder_img, 0755, true);
+}
 $biodata = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM biodata LIMIT 1"));
 
 if($_SERVER['REQUEST_METHOD']==='POST'){
@@ -97,8 +100,18 @@ $foto_preview = $biodata['foto_local']
 </div>
 
 <style>
-.admin-input{background:#1a1a1a;border:1px solid rgba(224,0,0,0.3);color:#f0f0f0;border-radius:6px}
-.admin-input:focus{background:#1a1a1a;border-color:#e00000;color:#f0f0f0;box-shadow:0 0 0 2px rgba(224,0,0,0.2)}
+    .admin-input {
+        background:#1a1a1a;
+        border:1px solid rgba(224,0,0,0.3);
+        color:#f0f0f0;
+        border-radius:6px;
+    }
+    .admin-input:focus {
+        background:#1a1a1a;
+        border-color:#e00000;
+        color:#f0f0f0;
+        box-shadow:0 0 0 2px rgba(224,0,0,0.2)
+    }
 </style>
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 <script>
@@ -112,4 +125,6 @@ $('#fotoInput').on('change', function(){
 });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body></html>
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

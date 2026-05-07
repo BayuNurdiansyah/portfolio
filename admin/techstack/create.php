@@ -2,6 +2,10 @@
 session_start();
 if(!isset($_SESSION['admin'])){ header('Location: ../../admin/login.php'); exit; }
 require_once '../../config/db.php';
+$folder_techstack = '../../assets/img/techstack/';
+if(!is_dir($folder_techstack)){
+  mkdir($folder_techstack, 0755, true);
+}
 
 if($_SERVER['REQUEST_METHOD']==='POST'){
   $nama      = mysqli_real_escape_string($conn,$_POST['nama']);
