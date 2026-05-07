@@ -21,8 +21,7 @@ Website portfolio pribadi berbasis PHP Native + MySQL dengan fitur CRUD di panel
 2. Import database:
    - Buka phpMyAdmin → http://localhost/phpmyadmin
    - Buat database baru bernama `portfolio_db`
-   - Import file `database/portfolio.sql` (jika tersedia)
-   - Atau jalankan manual query SQL dari file dokumentasi
+   - Jalankan query SQL dari file dokumentasi
 
 3. Konfigurasi koneksi database di `config/db.php`:
 ```php
@@ -36,6 +35,8 @@ Website portfolio pribadi berbasis PHP Native + MySQL dengan fitur CRUD di panel
 
 5. Buka browser → http://localhost/portfolio
 
+> Folder `assets/img/` dan `assets/img/techstack/` akan dibuat otomatis oleh sistem saat pertama kali mengakses halaman admin.
+
 ---
 
 ## Halaman Website
@@ -47,7 +48,8 @@ Website portfolio pribadi berbasis PHP Native + MySQL dengan fitur CRUD di panel
 | Riwayat Pekerjaan | http://localhost/portfolio/pekerjaan.php |
 | Riwayat Organisasi | http://localhost/portfolio/organisasi.php |
 | Tech Stack | http://localhost/portfolio/techstack.php |
-| Admin Panel | http://localhost/portfolio/admin/login.php |
+| Admin Login | http://localhost/portfolio/admin/login.php |
+| Admin Dashboard | http://localhost/portfolio/admin/dashboard.php |
 
 ---
 
@@ -63,10 +65,15 @@ Website portfolio pribadi berbasis PHP Native + MySQL dengan fitur CRUD di panel
 ---
 
 ## Fitur Admin
-- CRUD Riwayat Pendidikan
-- CRUD Riwayat Pekerjaan  
-- CRUD Riwayat Organisasi
-- Session login & logout
+
+| Menu | Fitur |
+|---|---|
+| Dashboard | Ringkasan data + akses cepat semua menu |
+| Profil | Upload & ganti foto profil |
+| Pendidikan | Tambah, Edit, Hapus riwayat pendidikan |
+| Pekerjaan | Tambah, Edit, Hapus riwayat pekerjaan |
+| Organisasi | Tambah, Edit, Hapus riwayat organisasi |
+| Tech Stack | Tambah, Edit, Hapus tech stack + upload logo lokal |
 
 ---
 
