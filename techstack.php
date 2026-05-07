@@ -36,10 +36,15 @@ while($row = mysqli_fetch_assoc($data)) {
       <i class="fa fa-layer-group me-2"></i><?= htmlspecialchars($kategori) ?>
     </p>
     <div class="tech-grid">
-      <?php foreach($items as $item): ?>
+      <?php foreach($items as $item): 
+        $logo = $item['logo_local']
+        ? 'assets/img/techstack/'.$item['logo_local']
+        : $item['logo_url'];
+        ?>
       <div class="tech-card">
-        <img src="<?= htmlspecialchars($item['logo_url']) ?>"
-             alt="<?= htmlspecialchars($item['nama']) ?>">
+        <img src="<?= htmlspecialchars($logo) ?>"
+             alt="<?= htmlspecialchars($item['nama']) ?>"
+             onerror="this.src='https://via.placeholder.com/40x40/1a1a1a/e00000?text=?'">
         <p class="tech-name"><?= htmlspecialchars($item['nama']) ?></p>
         <p class="tech-cat"><?= htmlspecialchars($item['kategori']) ?></p>
       </div>
