@@ -2,6 +2,9 @@
  ?>
 <?php
 $biodata = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM biodata LIMIT 1"));
+$foto = $biodata['foto_local']
+  ? 'assets/img/'.$biodata['foto_local']
+  : $biodata['foto'];
 
 $jml_pendidikan = mysqli_fetch_assoc(mysqli_query($conn,"SELECT COUNT(*) c FROM pendidikan"))['c'];
 
@@ -56,13 +59,12 @@ $jml_techstack  = mysqli_fetch_assoc(mysqli_query($conn,"SELECT COUNT(*) c FROM 
       </div>
       <div class="col-lg-5 text-center">
         <div class="hero-photo-wrapper">
-          <img src="<?= htmlspecialchars($biodata['foto']) ?>"
-               alt="Foto Ahmad Bayu" class="hero-photo"
-               onerror="this.src='https://ui-avatars.com/api/?name=Ahmad+Bayu&size=220&background=1a1a1a&color=e00000&bold=true'">
+          <img src="<?= htmlspecialchars($foto) ?>"
+          alt="Foto Ahmad Bayu" class="hero-photo"
+          onerror="this.src='https://ui-avatars.com/api/?name=Ahmad+Bayu&size=220&background=1a1a1a&color=e00000&bold=true'">
         </div>
         <div class="mt-3">
-          <span class="badge px-3 py-2" style="background:rgba(224,0,0,0.1);border:1px solid #e00000;color:#e00000;
-">
+          <span class="badge px-3 py-2" style="background:rgba(224,0,0,0.1);border:1px solid #e00000;color:#e00000;">
             <span class="blink-dot me-1">●</span> Web Developer
           </span>
         </div>

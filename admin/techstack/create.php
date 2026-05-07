@@ -39,7 +39,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     <a href="index.php" class="btn btn-outline-danger btn-sm"><i class="fa fa-arrow-left me-1"></i> Kembali</a>
   </div>
 </nav>
-<div class="container page-wrapper py-5">
+<div class="container page-wrapper">
   <p class="section-title">Tambah Tech Stack</p>
   <div class="title-line"></div>
   <div class="row justify-content-center"><div class="col-lg-6">
