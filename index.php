@@ -2,9 +2,7 @@
  ?>
 <?php
 $biodata = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM biodata LIMIT 1"));
-$foto = $biodata['foto_local']
-  ? 'assets/img/'.$biodata['foto_local']
-  : $biodata['foto'];
+$foto = $biodata['foto'];
 
 $jml_pendidikan = mysqli_fetch_assoc(mysqli_query($conn,"SELECT COUNT(*) c FROM pendidikan"))['c'];
 

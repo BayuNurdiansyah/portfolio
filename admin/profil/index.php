@@ -9,7 +9,7 @@ if(!is_dir($folder_img)){
 $biodata = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM biodata LIMIT 1"));
 
 if($_SERVER['REQUEST_METHOD']==='POST'){
-  $foto_local = $biodata['foto_local'];
+  $foto = $biodata['foto'];
 
   if(!empty($_FILES['foto']['name'])){
     $ext      = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION);
@@ -18,12 +18,12 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     $allowed  = ['png','jpg','jpeg','webp'];
     if(in_array(strtolower($ext), $allowed)){
       // Hapus foto lama
-      if($foto_local && file_exists('../../assets/img/'.$foto_local)){
-        unlink('../../assets/img/'.$foto_local);
+      if($foto && file_exists('../../assets/img/'.$foto)){
+        unlink('../../assets/img/'.$foto);
       }
       move_uploaded_file($_FILES['foto']['tmp_name'], $target);
-      $foto_local = mysqli_real_escape_string($conn, $filename);
-      mysqli_query($conn,"UPDATE biodata SET foto_local='$foto_local' WHERE id={$biodata['id']}");
+      $foto = mysqli_real_escape_string($conn, $filename);
+      mysqli_query($conn,"UPDATE biodata SET foto='$foto' WHERE id={$biodata['id']}");
       header('Location: index.php?msg=Foto berhasil diupdate'); exit;
     } else {
       $error = 'Format file tidak didukung. Gunakan PNG/JPG/WEBP.';
@@ -31,9 +31,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
   }
 }
 
-$foto_preview = $biodata['foto_local']
-  ? '../../assets/img/'.$biodata['foto_local']
-  : $biodata['foto'];
+$foto_preview = $biodata['foto'];
 ?>
 <!DOCTYPE html><html lang="id">
 <head>
@@ -75,7 +73,7 @@ $foto_preview = $biodata['foto_local']
         <!-- Preview foto -->
         <div class="mb-4">
           <div class="hero-photo-wrapper d-inline-block">
-            <img id="previewImg" src="<?= htmlspecialchars($foto_preview) ?>"
+            <img id="previewImg" src="../../<?= htmlspecialchars($foto_preview) ?>"
                  alt="Foto Profil" class="hero-photo"
                  onerror="this.src='https://ui-avatars.com/api/?name=Ahmad+Bayu&size=220&background=1a1a1a&color=e00000&bold=true'">
           </div>
