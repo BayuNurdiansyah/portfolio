@@ -1,0 +1,188 @@
+ @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap');
+
+:root {
+  --red-main: #e00000;
+  --bg-dark:  #0a0a0a;
+  --bg-card:  #111111;
+  --text-main: #f0f0f0;
+  --text-muted: #888;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: 'Rajdhani', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar */
+#mainNav {
+  background: rgba(10,10,10,0.95) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(224,0,0,0.4);
+  transition: box-shadow 0.3s;
+}
+
+.navbar-brand {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  color: #f0f0f0 !important;
+}
+
+.nav-link {
+  color: #888 !important;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+  margin: 0 4px;
+}
+
+.nav-link:hover {
+  color: #ff2222 !important;
+}
+
+.nav-link.active {
+  color: #e00000 !important;
+  position: relative;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 20px; height: 2px;
+  background: #e00000;
+  border-radius: 2px;
+}
+
+.page-wrapper {
+  padding-top: 80px;
+  flex: 1;
+}
+/* Section Title */
+.section-title  {
+    font-family:'Orbitron',monospace;
+    font-size:1.6rem;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase
+}
+.title-line {
+    width:60px;
+    height:3px;
+    background:linear-gradient(90deg,#e00000,transparent);
+    margin-bottom:2rem
+}
+.label-red {
+    font-family:'Orbitron',monospace;
+    font-size:.75rem;
+    letter-spacing:2px;
+    color:#e00000;
+    font-weight:700;
+    text-transform:uppercase
+}
+
+/* Cards */
+.card-dark {
+    background:#111;
+    border:1px solid rgba(224,0,0,0.35);
+    border-radius:8px;
+    padding:1.5rem;
+    transition:transform .3s,box-shadow .3s
+}
+.card-dark:hover {
+    transform:translateY(-4px);
+    box-shadow:0 0 20px rgba(224,0,0,0.2)
+}
+
+/* Bio Table */
+.bio-table td {
+    padding:8px 12px;
+    font-size:.95rem;
+    border-bottom:1px solid rgba(255,255,255,0.04)
+}
+.bio-table td:first-child {
+    color:#888;
+    width:130px;
+    font-size:.8rem;
+    letter-spacing:1px;
+    text-transform:uppercase
+}
+.bio-table td:last-child {
+    color:#f0f0f0;
+    font-weight:600
+}
+
+/* Skill Badges */
+.skill-badge {
+    display:inline-block;
+    padding:4px 14px;
+    border-radius:20px;
+    font-size:.8rem;
+    font-weight:600;
+    margin:3px;
+    letter-spacing:.5px;
+}
+.skill-mahir {
+    background:rgba(224,0,0,0.15);
+    border:1px solid #e00000;
+    color:#ff6666
+}
+.skill-menengah {
+    background:rgba(255,140,0,0.1);
+    border:1px solid #ff8c00;
+    color:#ffaa44
+}
+.skill-pemula {
+    background:rgba(100,100,255,0.1);
+    border:1px solid #6464ff;
+    color:#8888ff
+}
+
+/* Footer */
+.footer-dark {
+    background:#111;
+    border-top:1px solid rgba(224,0,0,0.3)
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width:6px
+}
+::-webkit-scrollbar-track {
+    background:#0a0a0a
+}
+::-webkit-scrollbar-thumb {
+    background:#e00000;
+    border-radius:3px
+}
+
+/* Buttons */
+.btn-danger {
+    background:#e00000 !important;
+    border-color:#e00000 !important;
+    font-weight:700;
+    letter-spacing:1px
+}
+.btn-outline-danger {
+    border-color:#e00000 !important;
+    color:#e00000 !important
+}
+.btn-outline-danger:hover {
+    background:#e00000 !important;
+    color:#fff !important
+}
+
+.list-section {
+    color: #f0f0f0;
+}
+
+.admin-input::placeholder {
+  color: #555 !important;
+}
